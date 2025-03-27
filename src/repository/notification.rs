@@ -2,7 +2,7 @@ use std::sync::RwLock;
 
 use lazy_static::lazy_static;
 
-use crate::model::notification::Notification;
+use crate::model::notification::{self, Notification};
 
 //* SINGLETON DATABASE
 lazy_static! {

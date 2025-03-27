@@ -5,7 +5,8 @@ pub mod service;
 pub mod repository;
 pub mod model;
 
-use dotenvy::dotenv;
+use dotenv::dotenv;
+use std::env;
 use crate::controller::route_stage;
 
 #[launch]
