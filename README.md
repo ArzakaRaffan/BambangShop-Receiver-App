@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Commit: `Implement receive_notification function in Notification service.`
+    -   [x] Commit: `Implement receive function in Notification controller.`
+    -   [x] Commit: `Implement list_messages function in Notification service.`
+    -   [x] Commit: `Implement list function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 ### Mandatory (Subscriber) Reflections
@@ -92,3 +92,14 @@ Penggunaan RwLock<> dalam app ini lebih efisien karena RwLock<> memungkinkan pem
 Rust memiliki sistem ownership yang mencegah kita dalam memodifikasi variabel statis secara langsung sementara dalam Java kita dapat mengakses dan mengubah variabel statis oleh banyak thread tanpa batas. Dalam rust, jika ingin membuat static variables menjadi mutable (secara default immutable), dianjurkan pemakaian `lazy_static!` dengan tipe data seperti RwLock<> atau DashMap<> yang memungkinkan modifikasi dengan mekanisme locking.
 
 #### Reflection Subscriber-2
+>Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+
+Di beberapa part kode lain, saya sempat beberapa kali melihat kodenya. Salah satunya adalah lib.rs yang menangani bagaimana aplikasi mengatur konfigurasi dan juga menangani error. Lalu terdapat juga main.rs yang menjadi entry point atau point masuk utama aplikasi yang berfungsi memuat variabel .env, membangun dan mengonfigurasi rocket, dll.
+
+>Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+
+Observer pattern memungkinkan suatu publisher memiliki banyak subscriber (one-to-many) dimana subscriber akan diberikan notifikasi otomatis ketika terjadi perubahan pada subject. Jika menjalankan lebih dari satu instance dari Main app, tentunya bisa lebih kompleks dibandingkan menambahkan receiver app. Hal ini karena receiver app fungsinya hanya untuk mendengarkan sementara main app harus mengelola proses pengiriman juga.
+
+>Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+
+Belum, namun penambahan tes dapat sangat bermanfaat karena kita dapat memastikan API dapat merespons dengan benar dan sesuai dengan ekspektasi. Lalu penambahan tes juga berguna dalam mendeteksi error yang terjadi pada API. Selain itu, penambahan dokumentasi di postman dapat membantu tim dalam berkolaborasi dengan tim lain karena dokumentasi memungkinkan tim lain dapat memahami cara penggunaan API dengan cepat dan juga mempermudah debugging.
